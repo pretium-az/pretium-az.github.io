@@ -8,6 +8,7 @@
 
   <link rel="stylesheet" href="/assets/css/style.css">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
 
   {% block styles %}{% endblock %}
 
@@ -16,11 +17,41 @@
 
   {% include "header.njk" %}
   
-  <main class="container mx-auto px-4 mt-9">
+  <main class="container mx-auto px-4 mt-10 pb-10">
     {{ content | safe }}
   </main>
 
   {% block scripts %}{% endblock %}
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script>
+  const swiper = new Swiper('.swiper', {
+    // Optional parameters
+    direction: 'horizontal',
+    loop: true,
+    autoPlay: {
+      delay: 1000,
+    },
+
+    // If we need pagination
+    pagination: {
+      el: '.swiper-pagination',
+    },
+
+    // Navigation arrows
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+
+    // And if we need scrollbar
+    scrollbar: {
+      el: '.swiper-scrollbar',
+    },
+  });
+  
+  </script>
 
 </body>
 </html> 
