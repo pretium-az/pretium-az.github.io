@@ -11,28 +11,61 @@ title: Pretium | Digital Solutions - SW Development, AI, Data
   <a href="#" class="px-4 py-2 font-medium bg-red-600 hover:bg-red-700 text-white rounded-md">All Services</a>
 </div>
 
-<section class="grid grid-cols-12">
-
-  <div class="col-span-4 bg-white border border-slate-300 p-4 rounded-xl">
-    
-    <span class="bg-slate-50 border border-slate-200 p-2 text-4xl inline-flex items-center rounded-md text-red-600">
-      <i class="icon-[ri--window-fill]"></i>
-    </span>
-    
-    <h3 class="text-3xl font-bold mt-3">Software Development</h3>
-
-    {% set elements = [
+{% set services = [
+  {
+    name: 'Software Development',
+    icon: '<i class="icon-[ri--window-fill]"></i>',
+    link: '#',
+    elements: [
       { name: "Software Development", link: "#" },
       { name: "Digital Transformation", link: "#" },
       { name: "Dedicated Team", link: "#" },
       { name: "Software Support", link: "#" },
       { name: "Project Rescue", link: "#" }
-    ] %}
+    ]
+  },
+  {
+    name: 'Artificial Intelligence',
+    icon: '<i class="icon-[eos-icons--ai]"></i>',
+    link: '#',
+    elements: [
+      { name: "AI SW Development", link: "#" },
+      { name: "AI-Augmented Team", link: "#" },
+      { name: "Computer Vision", link: "#" },
+      { name: "ChatGPT-Powered Apps", link: "#" },
+      { name: "Face Recognition SW", link: "#" }
+    ]
+  },
+  {
+    name: 'Advanced Technology',
+    icon: '<i class="icon-[pixel--technology]"></i>',
+    link: '#',
+    elements: [
+      { name: "Business Intelligence Development", link: "#" },
+      { name: "Bitcoin Software Development", link: "#" },
+      { name: "Cybersecurity", link: "#" },
+      { name: "Data Visualization", link: "#" },
+      { name: "Data Science", link: "#" }
+    ]
+  }
+] %}
+
+<section class="grid grid-cols-12 gap-6 mt-9">
+
+  {% for service in services %}
+
+  <div class="col-span-4 bg-white border border-slate-300 p-4 rounded-xl">
+    
+    <span class="bg-slate-50 border border-slate-300 p-2 text-5xl inline-flex items-center rounded-md text-red-700">
+      {{ service.icon | safe }}
+    </span>
+    
+    <h3 class="text-3xl font-bold mt-3 border-b border-b-slate-300 pb-3">{{ service.name }}</h3>
 
     <ul class="text-lg divide-y-1 divide-slate-300">
-      {% for element in elements %}
+      {% for element in service.elements %}
       <li>
-        <a href="#" class="flex items-center py-3 group">
+        <a href="{{ service.link }}" class="flex items-center py-3 group font-medium">
           <span class="group-hover:text-red-700">{{ element.name }}</span>
           <span class="bg-slate-100 flex items-center justify-center ms-auto p-2 border border-slate-300 rounded-md group-hover:bg-red-600 group-hover:text-white">
             <i class="icon-[mingcute--arrow-right-fill]"></i>
@@ -43,5 +76,7 @@ title: Pretium | Digital Solutions - SW Development, AI, Data
     </ul>
 
   </div>
+
+  {% endfor %}
 
 </section>
