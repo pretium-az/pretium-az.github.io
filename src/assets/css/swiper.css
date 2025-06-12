@@ -1,0 +1,10 @@
+@layer components {
+
+  .swiper-pagination-bullet {
+    @apply bg-gray-700! size-3!;
+  }
+
+  .swiper-pagination-bullet-active {
+    @apply bg-red-700!;
+  }
+}
