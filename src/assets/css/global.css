@@ -1,5 +1,12 @@
 @import "tailwindcss";
 
+@layer base {
+
+  body {
+    @apply bg-slate-50;
+  }
+}
+
 @plugin "@iconify/tailwind4" {
  prefixes: mdi-light, vscode-icons, mynaui;
 }

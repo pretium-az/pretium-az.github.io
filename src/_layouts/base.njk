@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <title>{{ title }}</title>
 
   <link rel="stylesheet" href="/assets/css/style.css">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -15,7 +16,7 @@
 
   {% include "header.njk" %}
   
-  <main class="max-w-7xl mx-auto px-4 py-4">
+  <main class="container mx-auto px-4 mt-9">
     {{ content | safe }}
   </main>
 
