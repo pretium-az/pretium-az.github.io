@@ -3,6 +3,8 @@ layout: "base.njk"
 title: Digital Solutions - SW Development, AI, Data
 ---
 
+{% if true %}
+
 <section class="flex flex-col gap-3">
   <h2 class="text-center text-5xl font-semibold">How Can We <span class="text-red-700">Help Your Business</span></h2>
 
@@ -12,6 +14,8 @@ title: Digital Solutions - SW Development, AI, Data
     <a href="#" class="px-4 py-2 font-medium bg-red-700 hover:bg-red-800 text-white rounded-md">All Services</a>
   </div>
 </section>
+
+{% endif %}
 
 {% set services = [
   {
@@ -52,6 +56,8 @@ title: Digital Solutions - SW Development, AI, Data
   }
 ] %}
 
+{% if false %}
+
 <section class="grid grid-cols-12 gap-6 mt-10">
 
   {% for service in services %}
@@ -82,6 +88,8 @@ title: Digital Solutions - SW Development, AI, Data
   {% endfor %}
 
 </section>
+
+{% endif %}
 
 {% set brands = [
   {
@@ -139,6 +147,8 @@ title: Digital Solutions - SW Development, AI, Data
   
 ] %}
 
+{% if false %}
+
 <section class="flex flex-col gap-4 mt-10">
   <h2 class="text-center text-5xl font-semibold">
     <span class="text-red-700">Trusted by</span> Leading Brands
@@ -155,6 +165,10 @@ title: Digital Solutions - SW Development, AI, Data
     {% endfor %}
   </div>
 </section>
+
+{% endif %}
+
+{% if false %}
 
 <section class="flex flex-col gap-2 mt-10">
 
@@ -213,3 +227,5 @@ title: Digital Solutions - SW Development, AI, Data
   </div>
 
 </section>
+
+{% endif %}
