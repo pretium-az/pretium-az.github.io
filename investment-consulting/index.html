@@ -16,22 +16,20 @@
 <body>
 
   <header class="bg-white shadow-lg py-3">
-  
   <div class="container mx-auto px-4 flex items-center gap-4">
     
     <a href="/" class="w-40">
       <img src="/assets/img/logo.svg">
     </a>
 
-
-    <nav class="flex grow-1 items-center">
-      
+    <!-- Desktop Navigation -->
+    <nav class="hidden lg:flex grow-1 items-center">
       <ul class="flex items-center ms-auto text-lg">
         <li>
-          <a href="/about-us" class=" hover:text-red-700 px-3">About us</a>
+          <a href="/about-us" class="hover:text-red-700 px-3">About us</a>
         </li>
         <li class="relative group">
-          <a class=" hover:text-red-700 px-3 flex items-center gap-2">
+          <a class="hover:text-red-700 px-3 flex items-center gap-2">
             Our services 
             <span class="flex items-center">
               <i class="icon-[line-md--chevron-down]"></i>
@@ -49,7 +47,7 @@
           </ul>
         </li>
         <li>
-          <a href="/projects" class=" hover:text-red-700 px-3">Projects</a>
+          <a href="/projects" class="hover:text-red-700 px-3">Projects</a>
         </li>
       </ul>
 
@@ -57,12 +55,131 @@
         class="ms-auto text-lg bg-red-700 text-white rounded-xl py-2 px-3 hover:bg-red-800 active:ring-2">
         Contact us
       </a>
-
     </nav>
 
+    <!-- Mobile Menu Button -->
+    <button class="lg:hidden flex flex-col justify-center items-center w-8 h-8 ms-auto" id="mobileMenuBtn">
+      <span class="block w-6 h-0.5 bg-gray-700 mb-1 transition-all duration-300"></span>
+      <span class="block w-6 h-0.5 bg-gray-700 mb-1 transition-all duration-300"></span>
+      <span class="block w-6 h-0.5 bg-gray-700 transition-all duration-300"></span>
+    </button>
   </div>
-  
+
+  <!-- Mobile Navigation -->
+  <nav class="lg:hidden hidden fixed top-0 left-0 w-full h-full bg-white z-50" id="mobileMenu">
+    <div class="flex flex-col h-full">
+      <!-- Header copy for mobile menu -->
+      <div class="bg-white shadow-lg py-3 border-b border-gray-200">
+        <div class="container mx-auto px-4 flex items-center justify-between">
+          <a href="/" class="w-40">
+            <img src="/assets/img/logo.svg">
+          </a>
+          <button class="flex flex-col justify-center items-center w-8 h-8" id="mobileMenuCloseBtn">
+            <span class="block w-6 h-0.5 bg-gray-700 mb-1 transition-all duration-300"></span>
+            <span class="block w-6 h-0.5 bg-gray-700 mb-1 transition-all duration-300"></span>
+            <span class="block w-6 h-0.5 bg-gray-700 transition-all duration-300"></span>
+          </button>
+        </div>
+      </div>
+      
+      <!-- Menu content -->
+      <div class="flex-1 overflow-y-auto px-4 py-6">
+        <ul class="space-y-4">
+          <li>
+            <a href="/about-us" class="block px-3 py-3 text-xl hover:text-red-700 hover:bg-gray-50 rounded">About us</a>
+          </li>
+          <li>
+            <button class="w-full text-left px-3 py-3 text-xl hover:text-red-700 hover:bg-gray-50 rounded flex items-center justify-between" id="mobileServicesBtn">
+              Our services
+              <i class="icon-[line-md--chevron-down] transition-transform duration-200" id="mobileServicesIcon"></i>
+            </button>
+            <ul class="hidden ml-4 mt-2 space-y-2" id="mobileServicesDropdown">
+              <li><a href="/business-consulting" class="block px-3 py-2 text-lg hover:text-red-700 hover:bg-gray-50 rounded">Business consulting</a></li>
+              <li><a href="/investment-consulting" class="block px-3 py-2 text-lg hover:text-red-700 hover:bg-gray-50 rounded">Investment consulting</a></li>
+              <li><a href="/audit" class="block px-3 py-2 text-lg hover:text-red-700 hover:bg-gray-50 rounded">Audit</a></li>
+              <li><a href="/assessment" class="block px-3 py-2 text-lg hover:text-red-700 hover:bg-gray-50 rounded">Assessment</a></li>
+              <li><a href="/is-audit" class="block px-3 py-2 text-lg hover:text-red-700 hover:bg-gray-50 rounded">IS audit</a></li>
+              <li><a href="/start-up-consulting" class="block px-3 py-2 text-lg hover:text-red-700 hover:bg-gray-50 rounded">Start up consulting</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="/projects" class="block px-3 py-3 text-xl hover:text-red-700 hover:bg-gray-50 rounded">Projects</a>
+          </li>
+          <li class="pt-6">
+            <a href="/contact-us" 
+              class="block text-center text-xl bg-red-700 text-white rounded-xl py-3 px-4 hover:bg-red-800">
+              Contact us
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 </header>
+
+<script>
+// Mobile menu toggle
+const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+const mobileMenuCloseBtn = document.getElementById('mobileMenuCloseBtn');
+const mobileMenu = document.getElementById('mobileMenu');
+
+function toggleMobileMenu() {
+  const spans = mobileMenuCloseBtn.querySelectorAll('span');
+  
+  // Toggle hamburger animation
+  if (mobileMenu.classList.contains('hidden')) {
+    // Open menu - transform to X
+    spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+    spans[1].style.opacity = '0';
+    spans[2].style.transform = 'rotate(-45deg) translate(7px, -6px)';
+    document.body.style.overflow = 'hidden'; // Prevent scrolling
+  } else {
+    // Close menu - transform to hamburger
+    spans[0].style.transform = 'rotate(0) translate(0, 0)';
+    spans[1].style.opacity = '1';
+    spans[2].style.transform = 'rotate(0) translate(0, 0)';
+    document.body.style.overflow = 'auto'; // Allow scrolling
+  }
+  
+  mobileMenu.classList.toggle('hidden');
+}
+
+mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+mobileMenuCloseBtn.addEventListener('click', toggleMobileMenu);
+
+// Mobile services dropdown
+const mobileServicesBtn = document.getElementById('mobileServicesBtn');
+const mobileServicesDropdown = document.getElementById('mobileServicesDropdown');
+const mobileServicesIcon = document.getElementById('mobileServicesIcon');
+
+mobileServicesBtn.addEventListener('click', function() {
+  mobileServicesDropdown.classList.toggle('hidden');
+  mobileServicesIcon.classList.toggle('rotate-180');
+});
+
+// Close mobile menu on outside click - removed since it's full screen
+// document.addEventListener('click', function(e) {
+//   if (!mobileMenuBtn.contains(e.target) && !mobileMenu.contains(e.target)) {
+//     const spans = mobileMenuBtn.querySelectorAll('span');
+//     spans[0].style.transform = 'rotate(0) translate(0, 0)';
+//     spans[1].style.opacity = '1';
+//     spans[2].style.transform = 'rotate(0) translate(0, 0)';
+//     mobileMenu.classList.add('hidden');
+//   }
+// });
+
+// Close mobile menu on window resize
+window.addEventListener('resize', function() {
+  if (window.innerWidth >= 1024) {
+    const spans = mobileMenuCloseBtn.querySelectorAll('span');
+    spans[0].style.transform = 'rotate(0) translate(0, 0)';
+    spans[1].style.opacity = '1';
+    spans[2].style.transform = 'rotate(0) translate(0, 0)';
+    mobileMenu.classList.add('hidden');
+    document.body.style.overflow = 'auto'; // Allow scrolling
+  }
+});
+</script>
   
   <main class="container mx-auto px-4 mt-10 pb-10">
     <h2 class="text-center text-5xl font-semibold">Investment consulting</h2>
