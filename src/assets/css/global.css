@@ -5,6 +5,14 @@
   body {
     @apply bg-slate-50;
   }
+
+  h1, h2 {
+    @apply mb-9;
+  }
+
+  p{
+    @apply mb-6;
+  }
 }
 
 @import './swiper.css';
