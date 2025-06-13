@@ -342,6 +342,9 @@
   .w-full {
     width: 100%;
   }
+  .grow {
+    flex-grow: 1;
+  }
   .grow-1 {
     flex-grow: 1;
   }
