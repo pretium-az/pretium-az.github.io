@@ -13,13 +13,13 @@
   {% block styles %}{% endblock %}
 
 </head>
-<body>
+<body class="relative">
 
   {% include "header.njk" %}
   
   <main class="container mx-auto px-4 mt-10 pb-10">
     {{ content | safe }}
-  </main>
+  </main> 
 
   {% block scripts %}{% endblock %}
 
