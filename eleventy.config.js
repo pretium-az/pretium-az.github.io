@@ -10,6 +10,10 @@ export default async function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("./src/assets/css/style.css");
   eleventyConfig.addPassthroughCopy("./src/assets/img");
   
+  eleventyConfig.addCollection("homeServices", (collectionsApi) => {
+
+    return collectionsApi.getFilteredByTag('services').splice(0, 3);
+  }); 
 
 }
 
