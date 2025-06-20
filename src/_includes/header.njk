@@ -1,4 +1,4 @@
-{# <header class="sticky top-0 shadow-lg py-3">
+<header class="not_scrolled primary_header sticky bg-white top-0 z-2 shadow-lg py-3">
   <div class="container mx-auto px-4 flex items-center gap-4">
     
     <a href="/" class="w-40">
@@ -100,8 +100,32 @@
   </nav>
 </header>
 
-<section class="w-full h-[calc(100svh-73px)]">
-  <video
+<div class="w-full h-svh -mt-[73px] relative flex flex-col items-center justify-center">
+
+  <video 
+    autoplay loop muted playsinline
+    class="object-cover object-center w-full h-full absolute top-0 start-0">
+    <source 
+      src="https://cdn.prod.website-files.com/669e317d79600bcb185a8939%2F669e6ba56dc58b8f33172066_moravio_homepage_horizontal%20%281080p%29-transcode.mp4">
+    </source>
+  </video>
+
+  <div class="absolute top-0 start-0 w-full h-full bg-black/30 z-1"></div>
+
+  <div class="container z-1 mx-auto px-4 text-white flex flex-col gap-6 items-center">
+    
+    <h1 class="text-5xl font-bold mb-0">Your Partner in Digital Transformation</h1>
+    <p class="mb-0 text-2xl">Custom Software, Applications, Integrations, Data and AI Systems</p>
+    <a href="/contact-us" 
+      class="text-lg bg-red-700 text-white rounded-xl py-2 px-3 hover:bg-red-800 active:ring-2">
+      Contact us
+    </a>
+  </div>
+
+</div>
+
+{# <section class="w-full h-[calc(100svh-73px)]">
+  <video 
     autoplay loop muted playsinline
     class="object-cover object-center w-full h-full -z-30">
     <source 
@@ -110,7 +134,7 @@
   </video>
 </section> #}
 
-<div class="w-full h-svh block relative">
+{# <div class="w-full h-svh block relative">
 
   <header class="sticky top-0 shadow-lg py-3">
     <div class="container mx-auto px-4 flex items-center gap-4">
@@ -224,7 +248,8 @@
     </video>
   </section>
 
-</div>
+</div> #}
+
 
 <script>
 
@@ -279,8 +304,23 @@ window.addEventListener('resize', function() {
   }
 });
 
+const header    = document.querySelector('.primary_header');
+
+window.addEventListener('scroll', () => {
+
+  const currentScrollY = window.scrollY;
+  
+  if (currentScrollY != 0) {
+    header.classList.remove('not_scrolled');
+  } else {
+    header.classList.add('not_scrolled');
+  }
+
+  {# lastScrollY = currentScrollY; #}
+});
+
 //  SCROLL
-let lastScrollY = window.scrollY;
+{# let lastScrollY = window.scrollY;
 
 const header    = document.querySelector('header');
 
@@ -294,6 +334,6 @@ window.addEventListener('scroll', () => {
   }
 
   lastScrollY = currentScrollY;
-});
+}); #}
 
 </script>

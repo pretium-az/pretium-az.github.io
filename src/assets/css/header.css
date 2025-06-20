@@ -1,0 +1,6 @@
+@layer components {
+
+  .not_scrolled {
+    @apply bg-transparent! shadow-none! text-white!;
+  } 
+}
