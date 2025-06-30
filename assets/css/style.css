@@ -431,9 +431,6 @@
   .h-svh {
     height: 100svh;
   }
-  .min-h-svh {
-    min-height: 100svh;
-  }
   .w-6 {
     width: calc(var(--spacing) * 6);
   }
