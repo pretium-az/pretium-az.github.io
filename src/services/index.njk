@@ -1,0 +1,25 @@
+---
+layout: base.njk
+---
+
+<h2 class="text-center text-5xl font-semibold">Services</h2>
+
+<!-- Services -->
+<section class="grid grid-cols-12 gap-6 mt-10 z-1">
+
+  {% for service in collections.services %}
+  <a href="{{service.url}}" class="md:col-span-4 sm:col-span-6 col-span-12 bg-white border border-slate-300 p-4 rounded-xl">
+  
+    <span class="bg-slate-50 border border-slate-300 p-2 text-5xl inline-flex items-center rounded-md text-red-700">
+      {{ service.data.icon | safe }}
+    </span>
+    
+    <h3 class="sm:text-3xl text-2xl font-bold mt-3">
+      {{ service.data.title }}
+    </h3>
+
+  </a>
+
+  {% endfor %}
+
+</section>

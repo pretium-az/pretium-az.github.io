@@ -17,9 +17,11 @@
 
   {% include "header.njk" %}
   
-  <main class="container mx-auto px-4 mt-10 pb-10">
+  <main class="container mx-auto px-4 mt-10 pb-10 min-h-svh">
     {{ content | safe }}
   </main> 
+
+  {% include "footer.njk" %}
 
   {% block scripts %}{% endblock %}
 
