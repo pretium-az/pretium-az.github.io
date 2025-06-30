@@ -25,7 +25,9 @@ title: Digital Solutions - SW Development, AI, Data
 <section class="grid grid-cols-12 gap-6 mt-10 z-1">
 
   {% for service in collections.homeServices %}
-  <div class="md:col-span-4 sm:col-span-6 col-span-12 bg-white border border-slate-300 p-4 rounded-xl">
+  <a 
+    href="{{service.url}}" 
+    class="md:col-span-4 sm:col-span-6 col-span-12 bg-white border border-slate-300 p-4 rounded-xl">
   
     <span class="bg-slate-50 border border-slate-300 p-2 text-5xl inline-flex items-center rounded-md text-red-700">
       {{ service.data.icon | safe }}
@@ -35,7 +37,7 @@ title: Digital Solutions - SW Development, AI, Data
       {{ service.data.title }}
     </h3>
 
-  </div>
+  </a>
 
   {% endfor %}
 
