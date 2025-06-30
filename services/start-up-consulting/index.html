@@ -202,27 +202,27 @@ window.addEventListener('resize', function() {
   }
 });
 
-const header    = document.querySelector('.primary_header');
+const header        = document.querySelector('.primary_header');
+const currentPath   = window.location.pathname;
 
-window.addEventListener('scroll', () => {
+if(currentPath == '/'){
 
-  const currentScrollY = window.scrollY;
-  
-  if (currentScrollY != 0) {
-    header.classList.remove('not_scrolled');
-  } else {
-    header.classList.add('not_scrolled');
-  }
+  window.addEventListener('scroll', () => {
 
-  
-});
+    const currentScrollY = window.scrollY;
+    
+    if (currentScrollY != 0) {
+      header.classList.remove('not_scrolled');
+    } else {
+      header.classList.add('not_scrolled');
+    }
 
-//  SCROLL
-
+  });
+}
 
 </script>
   
-  <main class="container mx-auto px-4 mt-10 pb-10">
+  <main class="container mx-auto px-4 mt-10 pb-10 min-h-svh">
     <h2 class="text-center text-5xl font-semibold">Start up consulting</h2>
 
 <p>
@@ -246,6 +246,39 @@ window.addEventListener('scroll', () => {
 </p>
 
   </main> 
+
+  <footer class="bg-slate-900">
+  
+  <div class="container text-slate-200 mx-auto px-4 mt-4 py-5">
+
+    <div class="grid grid-cols-12">
+      <div class="col-span-6">
+        © 2025 Pretium. All rights reserved.
+      </div>
+
+      <div class="col-span-6">
+        <div class="flex justify-end">
+          <ul class="flex gap-4">
+            <li>
+              <a href="#" target="_blank" class="flex items-center gap-2">
+                <i class="icon-[bi--linkedin]"></i> 
+                <span>Linkedin</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" target="_blank" class="flex items-center gap-2">
+                <i class="icon-[streamline--instagram-solid]"></i>
+                <span>Instagram</span>
+              </a>
+            </li>
+          </ul>
+        <div>
+      </div>
+    </div>
+
+  </div>
+
+</footer> 
 
   
 
